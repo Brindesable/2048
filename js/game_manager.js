@@ -54,6 +54,8 @@ GameManager.prototype.setup = function () {
     this.addStartTiles();
   }
 
+  this.inputManager.actuate(this.size, this.grid.serialize().cells)
+
   // Update the actuator
   this.actuate();
 };
@@ -95,6 +97,8 @@ GameManager.prototype.actuate = function () {
     bestScore:  this.storageManager.getBestScore(),
     terminated: this.isGameTerminated()
   });
+
+  this.inputManager.actuate(this.size, this.grid.serialize().cells);
 
 };
 
